@@ -10,11 +10,12 @@
 angular.module('waitstaffApp')
   .controller('EarningCtrl', function ($scope) {
 
-    $scope.data = {
-      counter: 0
-    };
+    // $scope.data = {
+    //   counter: 0
+    // };
 
     $scope.increment = function() {
       $scope.data.counter++;
     };
+
   });
