@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name waitstaffApp.controller:AppCtrl
+ * @name waitstaffApp.controller:MainCtrl
  * @description
- * # AppCtrl
+ * # MainCtrl
  * Controller of the waitstaffApp
  */
 angular.module('waitstaffApp')
-  .controller('AppCtrl', function ($scope, $location) {
+  .controller('MainCtrl', function ($scope, $location) {
 
     $scope.data = { charges: [] };
 
