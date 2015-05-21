@@ -1,31 +1,41 @@
-<style type="text/css" media="screen">
-dd, dt {
-  margin-bottom: 15px;
-}
-</style>
-
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 id="panel-title" class="panel-title">Enter the meal details <a class="anchorjs-link" href="#panel-title"><span class="anchorjs-icon"></span></a></h3>
   </div>
   <div class="panel-body">
-    <form class="form-horizontal">
+    <form class="form-horizontal" name="form" ng-submit="createCharge(form)" novalidate>
       <div class="form-group">
         <label for="baseMealPrice" class="col-sm-4 control-label">Base Meal Price</label>
         <div class="col-sm-8">
-          <input type="number" class="form-control" id="baseMealPrice" placeholder="0.00">
+          <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="text" class="form-control" id="baseMealPrice" ng-model="baseMealPrice" placeholder="0.00">
+          </div>
         </div>
       </div>
       <div class="form-group">
         <label for="taxRate" class="col-sm-4 control-label">Tax Rate</label>
         <div class="col-sm-8">
-          <input type="password" class="form-control" id="taxRate" placeholder="0.00">
+          <div class="input-group">
+            <div class="input-group-addon">%</div>
+            <input type="text" class="form-control" id="taxRate" ng-model="taxRate" placeholder="0.00">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tipPercentage" class="col-sm-4 control-label">Tip Percentage</label>
+        <div class="col-sm-8">
+          <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="text" class="form-control" id="tipPercentage" ng-model="tipPercentage" placeholder="0.00">
+          </div>
+
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-4 col-sm-8">
           <button type="submit" class="btn btn-default">Submit</button>
-          <button type="submit" class="btn btn-default">Cancel</button>
+          <button ng-click="resetForm(form)" class="btn btn-default">Cancel</button>
         </div>
       </div>
     </form>
@@ -40,10 +50,10 @@ dd, dt {
   <div class="panel-body">
     <dl>
       <dt class="col-sm-2">Subtotal</dt>
-      <dd class="col-sm-10">0.00</dd>
+      <dd class="col-sm-10">{{subtotal | currency}}</dd>
       <dt class="col-sm-2">Tip</dt>
-      <dd class="col-sm-10">0</dd>
+      <dd class="col-sm-10">{{tipAmount | currency}}</dd>
       <dt class="col-sm-2">Total</dt>
-      <dd class="col-sm-10">0.00</dd>
+      <dd class="col-sm-10">{{total | currency}}</dd>
   </dl>
 </div>
