@@ -15,7 +15,10 @@ angular.module('waitstaffApp')
         $scope.data.charges.push({
           baseMealPrice: $scope.baseMealPrice,
           taxRate: $scope.taxRate,
-          tipPercentage: $scope.tipPercentage
+          tipPercentage: $scope.tipPercentage,
+          subtotal: $scope.subtotal,
+          tipAmount: $scope.tipAmount,
+          total: $scope.total
         });
 
         $scope.resetForm(form);
