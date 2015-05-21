@@ -8,7 +8,7 @@
  * Controller of the waitstaffApp
  */
 angular.module('waitstaffApp')
-  .controller('AppCtrl', function ($scope) {
+  .controller('AppCtrl', function ($scope, $location) {
 
     $scope.data = {};
 
@@ -30,4 +30,9 @@ angular.module('waitstaffApp')
       }
     ];
 
+    $scope.menuClass = function(page) {
+      var current = $location.path().substring(1);
+
+      return page === current ? 'active' : '';
+    };
   });
