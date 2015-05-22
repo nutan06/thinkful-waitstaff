@@ -35,21 +35,14 @@ angular.module('waitstaffApp')
     };
 
     $scope.$watchGroup(['baseMealPrice', 'taxRate', 'tipPercentage'], function(values) {
-      $scope.subtotal = Number(values[0]) * (1 + Number(values[1])/100);
-      if (isNaN($scope.subtotal)) {
-        $scope.subtotal = 0.00;
-      }
+      var subtotal = Number(values[0]) * (1 + Number(values[1])/100);
+      $scope.subtotal = isNaN(subtotal) ? 0.00 : subtotal;
 
-      $scope.tipAmount = $scope.subtotal * $scope.tipPercentage / 100;
-      if (isNaN($scope.tipAmount)) {
-        $scope.tipAmount = 0.00;
-      }
+      var tipAmount = $scope.subtotal * $scope.tipPercentage / 100;
+      $scope.tipAmount = isNaN(tipAmount) ? 0.00 : tipAmount;
 
-      $scope.total = $scope.subtotal + $scope.tipAmount;
-      if (isNaN($scope.total)) {
-        $scope.total = 0.00;
-      }
+      var total = $scope.subtotal + $scope.tipAmount;
+      $scope.total = isNaN(total) ? 0.00 : total;
 
     });
-
   });
